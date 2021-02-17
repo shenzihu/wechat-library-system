@@ -1,0 +1,21 @@
+<!--pages/user-setting/user-setting.wxml-->
+<view class="main-container">
+    <form bindsubmit="formSubmit">
+        <view class="usernameSetting">
+            <text>用户名</text>
+            <input type="text" value="{{user.userUsername}}" name="username"/>
+        </view>
+        <view class="usernameSetting">
+            <text>真实姓名</text>
+            <input type="text" value="{{user.realName}}" name="realName"/>
+        </view>
+        <view class="usernameSetting">
+            <text>密码</text>
+            <input type="password" value="{{user.userPassword}}" name="password"/>
+        </view>
+        <view class="button">
+            <button id="cancelBtn" bindtap="cancelBtn">取消</button>
+            <button id="saveBtn" formType="submit">保存</button>
+        </view>
+    </form>
+</view>

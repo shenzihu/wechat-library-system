@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<mappers>
+		<mapper resource="org/bookmate/mapper/BookMapper.xml"/>
+		<mapper resource="org/bookmate/mapper/AdminMapper.xml"/>
+		<mapper resource="org/bookmate/mapper/UserMapper.xml"/>
+		<mapper resource="org/bookmate/mapper/OrderMapper.xml"/>
+		<mapper resource="org/bookmate/mapper/BookClassifyTwoMapper.xml"/>
+		<mapper resource="org/bookmate/mapper/IsbnMapper.xml"/>
+	</mappers>
+
+</configuration>

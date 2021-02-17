@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/books/books",
+    "pages/register/register",
+    "pages/service-agreement/service-agreement",
+    "pages/index/index",
+    "pages/login/login",
+    "pages/books-search/books-search",
+    "pages/user/user",
+    "pages/book-detail/book-detail",
+    "pages/books-list/books-list",
+    "pages/user-isbn/user-isbn",
+    "pages/user-isbn-add/user-isbn-add",
+    "pages/user-setting/user-setting",
+    "pages/user-order/user-order",
+    "pages/book-order/book-order"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4db6ac",
+    "navigationBarTitleText": "图书预定系统",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/books/books",
+        "text": "书库",
+        "iconPath": "images/tabBar/books_0.png",
+        "selectedIconPath": "images/tabBar/books_1.png"
+      },
+      {
+        "pagePath": "pages/user-isbn-add/user-isbn-add",
+        "text": "添加图书ISBN",
+        "iconPath": "images/tabBar/isbn_0.png",
+        "selectedIconPath": "images/tabBar/isbn_1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "用户",
+        "iconPath": "images/tabBar/user_0.png",
+        "selectedIconPath": "images/tabBar/user_1.png"
+      }
+    ],
+    "borderStyle": "white",
+    "selectedColor": "#4db6ac",
+    "color": "#999"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,20 @@
+<!--pages/user-order/user-order.wxml-->
+<view class="main-container">
+	<view class="table">
+		<view class="tr bg-w">
+			<view class="th" style="width:42px">序号</view>
+			<view class="th">书名</view>
+			<view class="th ">数量</view>
+			<view class="th" style="width:60px">状态</view>
+		</view>
+		<block wx:for="{{orders}}" wx:key="key" wx:for-item="order">
+			<view class="tr">
+				<view class="td " style="width:42px">{{index+1}}</view>
+				<view class="td tdhidden">{{order.book.bookName}}</view>
+				<view class="td">{{order.num}}</view>
+				<view class="td" style="width:60px">{{order.status ==1?'通过': (order.status ==2?'未审批':'拒绝')}}</view>
+			</view>
+		</block>
+	</view>
+	<view wx:if="{{orders == 0}}" style="color:#666; font-size:32rpx; text-align:center; margin-top:100px;">暂无图书登记记录</view>
+</view>

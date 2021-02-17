@@ -1,0 +1,49 @@
+<!--pages/user/user.wxml-->
+<view class="main-container">
+
+	<!--用户信息-->
+	<view class="user-container">
+		<view class="logo">
+			<image src="{{userInfo.avatarUrl}}"></image>
+		</view>
+		<view class="username">{{realName}}</view>
+			<view class="desc">	
+		<view wx:if="{{user !=null}}"> 当前订阅图书量: {{bookOrderCount}}本 </view> 
+		<view bindtap="exitBtnOnClick" wx:if="{{user==null}}"
+		class="login"> 点击登陆 </view>
+	
+		</view>
+	</view>
+
+	<!--设置选项-->
+	<view class="set-container">
+		<view class="set-card" bindtap="bookOrderBtn">
+			<image src="/images/setting/borrow.png" />
+			<view class="name">提交预定图书</view>
+			<view class="arrow">></view>
+		</view>
+
+		<view class="set-card" bindtap="userBorrowBtn">
+			<image src="/images/setting/borrow.png" />
+			<view class="name">已提交预定图书</view>
+			<view class="arrow">></view>
+		</view>
+		<view class="set-card" bindtap="userISBNBtn">
+			<image src="/images/setting/history.png" />
+			<view class="name">已提交的图书ISBN</view>
+			<view class="arrow">></view>
+		</view>
+		<view class="set-card" bindtap="userSettingBtn" wx:if="{{user !=null}}">
+			<image src="/images/setting/set.png" />
+			<view class="name">账号设置</view>
+			<view class="arrow">></view>
+		</view>
+		<view class="set-card" bindtap="exitBtnOnClick" wx:if="{{user !=null}}">
+			<image src="/images/setting/exit.png" />
+			<view class="name">退出登录</view>
+			<view class="arrow">></view>
+		</view>
+
+	</view>
+
+</view>

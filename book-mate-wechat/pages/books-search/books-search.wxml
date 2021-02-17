@@ -1,0 +1,26 @@
+<!--pages/books-search/books-search.wxml-->
+<view class="main-container">
+	<view wx:for="{{books}}" wx:key="key" wx:for-item="book">
+		<view class="book-container" bindtap="bookDetailBtn" id="{{book.bookId}}">
+			<image src="{{book.bookImageBig}}"></image>
+			<view class="right" data-name="value">
+				<text class="title">{{book.bookName}}</text>
+				<text class="desc">作者：{{book.bookAuthor}}; 出版社：{{book.bookPress}}</text>
+			</view>
+		</view>
+		<view class="stepper" id="{{book.bookId}}">
+			<!-- 减号 -->
+			<text class="{{minusStatus}}" bindtap="bindMinus" id="{{book.bookId}}">-</text>
+			<!-- 数值 -->
+			<input type="number" bindchange="bindManual" value="{{bookCount[book.bookId] == undefined? 0 :bookCount[book.bookId] }}" id="{{book.bookId}}" />
+			<!-- 加号 -->
+			<text class="normal" bindtap="bindPlus" id="{{book.bookId}}">+</text>
+		</view>
+	</view>
+
+	<view wx:if="{{books == ''}}" style="margin: 100px auto; font-size: 32rpx; color:#999;">
+			暂无内容，您可手动添加图书ISBN
+	 		<view class="addIsbnBtn" bindtap="addIsbnBtnOnClick">手动添加图书ISBN</view>
+	</view>
+
+</view>

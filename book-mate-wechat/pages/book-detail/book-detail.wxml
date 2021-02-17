@@ -1,0 +1,46 @@
+<!--pages/book-detail/book-detail.wxml-->
+<view class="main-container">
+
+	<!--图书详情-->
+	<view class="desc-container">
+		<image src="{{book.bookImageBig}}"></image>
+		<view class="right">
+			<view class="title">{{book.bookName}}
+			</view>
+			<view class="author">作者：{{book.bookAuthor}}</view>
+			<view class="press">出版社：{{book.bookPress}}</view>
+			<view class="classify1">第一分类：{{book.bookClassifyOne}}</view>
+			<view class="classify1">第二分类：{{book.bookClassifyTwo}}</view>
+
+		</view>
+	</view>
+
+	<!--内容介绍-->
+	<view class="content-container">
+		<text class="title">内容简介</text>
+		<text class="content" wx:if="{{book.bookDesc != ''}}">
+		{{book.bookDesc}}
+		</text>
+		<text class="content" wx:if="{{book.bookDesc == ''}}">
+            暂无简介
+        </text>
+	</view>
+
+	<!--执行操作-->
+	<view class="operate-container">
+		<view>
+			<text class="title">预定数量</text>
+			<view class="stepper" id="{{book.bookId}}">
+				<!-- 减号 -->
+				<text class="{{minusStatus}}" bindtap="bindMinus" id="{{book.bookId}}">-</text>
+				<!-- 数值 -->
+				<input type="number" bindchange="bindManual" value="{{bookCount[book.bookId] == undefined? 0 :bookCount[book.bookId] }}" id="{{book.bookId}}" />
+				<!-- 加号 -->
+				<text class="normal" bindtap="bindPlus" id="{{book.bookId}}">+</text>
+			</view>
+		</view>
+		<view style="clear:both" class="btn btn-left" bindtap="orderBtn" id="{{book.bookId}}">直接预定</view>
+        <view class="btn btn-right" bindtap="addOrderlistBtn" id="{{book.bookId}}">加入提交清单</view>
+	</view>
+
+</view>

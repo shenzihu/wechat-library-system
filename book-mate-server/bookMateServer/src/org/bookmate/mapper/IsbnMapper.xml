@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.bookmate.entities.IsbnMapper">
+    <resultMap id="BaseResultMap" type="org.bookmate.entities.Isbn">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="isbn" property="isbn" jdbcType="VARCHAR"/>
+        <result column="userid" property="userid" jdbcType="INTEGER"/>
+        <result column="book_name" property="bookName" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="get_time" property="getTime" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="comment" property="comment" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap type="org.bookmate.entities.Isbn"
+               id="isbnAndUserRM" extends="BaseResultMap">
+        <association property="user" javaType="org.bookmate.entities.User">
+            <id column="user_id" property="userId" jdbcType="INTEGER"/>
+            <result column="user_username" property="userUsername" jdbcType="VARCHAR"/>
+            <result column="user_password" property="userPassword" jdbcType="VARCHAR"/>
+            <result column="user_credit" property="userCredit" jdbcType="INTEGER"/>
+            <result column="user_create_time" property="userCreateTime" jdbcType="DATE"/>
+            <result column="user_message_status" property="userMessageStatus" jdbcType="INTEGER"/>
+            <result column="user_new_status" property="userNewStatus" jdbcType="INTEGER"/>
+            <result column="user_forum_status" property="userForumStatus" jdbcType="INTEGER"/>
+            <result column="user_recommend_status" property="userRecommendStatus" jdbcType="INTEGER"/>
+        </association>
+    </resultMap>
+    <select id="findAllIsbn" resultMap="isbnAndUserRM" parameterType="java.lang.Integer">
+        select *
+        from isbn i left join user u
+        on i.userid = u.user_id
+             where status = #{status}
+    </select>
+
+    <select id="insertIsbn" parameterType="org.bookmate.entities.Isbn">
+        insert into isbn(isbn, book_name, userid)
+        values (#{isbn}, #{bookName}, #{userid})
+    </select>
+    <select id="findIsbnByUserid" resultMap="isbnAndUserRM" parameterType="java.lang.Integer">
+        select *
+        from isbn
+        where userid = #{userid}
+    </select>
+
+</mapper>
+

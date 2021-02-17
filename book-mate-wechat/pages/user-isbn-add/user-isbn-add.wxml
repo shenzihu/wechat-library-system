@@ -1,0 +1,18 @@
+<!-- pages/user-isbn-add/user-isbn-add.wxml-->
+<view class="container">
+    <text class="errorMsg" wx:if="{{errorStatus}}">添加信息输入有误,请重新输入</text>    
+    <view class="formContainer">
+        <form bindsubmit="formSubmit">
+            <view class="usernameContainer">
+                <image src="/images/tabBar/isbn_0.png"></image>
+                <input type="text" name="book_isbn" value="{{book_isbn}}" placeholder="ISBN" />
+            </view>
+             <view class="usernameContainer">
+                <image src="/images/tabBar/books_0.png"></image>
+                <input type="text" name="bookName" value = "{{bookName}}" placeholder="书名" />
+            </view>
+            
+            <button class="registerBtn" formType="submit">添加</button>
+        </form>
+    </view>
+</view>

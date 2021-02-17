@@ -1,0 +1,44 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+	<text class="errorMsg" wx:if="{{errorStatus}}">注册信息输入有误,请重新输入</text>
+	<view class="formContainer">
+		<form bindsubmit="formSubmit">
+			<view class="usernameContainer">
+				<image src="/images/login/phone.png"></image>
+				<input type="text" name="phone" placeholder="手机号" />
+			</view>
+			<view class="usernameContainer">
+				<image src="/images/login/login-user.png"></image>
+				<input type="text" name="username" placeholder="员工号" />
+			</view>
+			<view class="usernameContainer">
+				<image src="/images/login/login-user.png"></image>
+				<input type="text" name="realName" placeholder="真实姓名" />
+			</view>
+			<view class="usernameContainer">
+				<image src="/images/login/login-department.png"></image>
+				<picker bindchange="bindPickerChange" name="depart" value="{{index}}" range="{{departments}}">
+					<view class="picker">
+						{{index ==undefined?"请选择部门":departments[index]}}
+					</view>
+				</picker>
+			</view>
+
+
+			<view class="passwordContainer">
+				<image src="/images/login/login-password.png"></image>
+				<input type="password" name="password" placeholder="密码" />
+			</view>
+			<view class="passwordContainer">
+				<image src="/images/login/login-password.png"></image>
+				<input type="password" name="password2" placeholder="再次输入密码" />
+			</view>
+			<view style="padding-top:5px">
+				<checkbox-group name="agree" style="display:inline">	<checkbox value="agree" /></checkbox-group>
+				<label>	阅读并同意以下协议<label bindtap="toAgreement" class="agree">服务协议</label></label>
+			</view>
+			<button class="registerBtn" formType="submit">注册</button>
+		</form>
+		<text class="navBtn" bindtap="navBtnOnClick">—— 已有账号登录 ——</text>
+	</view>
+</view>
